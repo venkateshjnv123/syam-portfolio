@@ -1,0 +1,28 @@
+export const site = {
+  nameFirst: 'SYAM',
+  nameLast: 'KUMAR',
+  logoLabel: 'SYAM',
+  logoHandle: '/TALKS',
+  profession: 'Video Editor & Content Creator',
+  tagline: 'Video editor, content creator & graphic designer crafting',
+  taglineBold: 'cinematic stories',
+  taglineRest: 'and high-retention content for brands worldwide.',
+  bio1: 'For over <b>2.5 years</b> I\'ve edited and created content for brands, creators and businesses — from punchy social reels to full-length brand films and motion graphics.',
+  bio2: 'My passion for video editing started in school — editing from my mobile phone. I chose this creative path over a conventional career because creating is what makes me truly happy. My work lives at the intersection of <b>rhythm, motion and emotion</b>.',
+  sig: '— Based in Visakhapatnam, working everywhere',
+  location: 'Visakhapatnam, India',
+  locationCode: 'IN',
+  phone: '+91 98852 51008',
+  email: 'syamtalks@gmail.com',
+  status: 'Available for projects',
+  year: '2026',
+  stats: [
+    { count: 50,   suffix: '+', display: '',     label: 'Projects Delivered' },
+    { count: null, suffix: '',  display: '2.5+', label: 'Years Experience' },
+    { count: 30,   suffix: '+', display: '',     label: 'Happy Clients' },
+  ] as Array<{ count: number | null; suffix: string; display: string; label: string }>,
+  socials: [
+    { label: 'YouTube', href: 'https://youtube.com/@syamtalks?si=T4K062JFcuKp29oz' },
+    { label: 'Instagram', href: 'https://www.instagram.com/syamtalks?igsh=MWllNmxxYnEyNmxkaQ==' },
+  ],
+}
