@@ -212,12 +212,20 @@ export default function Home() {
     e.preventDefault()
     setFormState('sending')
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'c734e3a4-d8f8-4ee6-95ac-98d2885a277f',
+          subject: `New inquiry from ${formData.name} — ${formData.projectType}`,
+          name: formData.name,
+          email: formData.email,
+          project_type: formData.projectType,
+          message: formData.message,
+        }),
       })
-      setFormState(res.ok ? 'sent' : 'error')
+      const data = await res.json()
+      setFormState(data.success ? 'sent' : 'error')
     } catch {
       setFormState('error')
     }
@@ -269,11 +277,11 @@ export default function Home() {
           <div className="nav-links">
             <a href="#intro">About</a>
             <a href="#work">Work</a>
-            <a href="#services">Services</a>
+            <a href="#services">Skills</a>
             <a href="#contact">Contact</a>
           </div>
           <a href="#contact" className="btn-hire">
-            <span className="live-dot" aria-hidden="true"></span>Hire Me
+            <span className="live-dot" aria-hidden="true"></span>Let&apos;s Talk
           </a>
           <button className="nav-toggle" aria-label="Toggle menu">☰</button>
         </div>
@@ -371,8 +379,7 @@ export default function Home() {
                 <div className="open-badge">
                   <span className="live-dot" aria-hidden="true"></span>Open for Work
                 </div>
-                {/* Replace with your portrait: <img src="/portrait.jpg" alt="Syam Kumar" /> */}
-                <div className="ph"><span>[ portrait ]</span></div>
+                <img src="/syamimage.jpeg" alt="Syam Kumar" />
               </div>
             </div>
           </div>
@@ -434,7 +441,9 @@ export default function Home() {
                 data-tc={featureProject.timecode}
                 onClick={() => window.open(featureProject.videoUrl, '_blank')}
               >
-                <div className="work-thumb"></div>
+                <div className="work-thumb">
+                  {featureProject.thumb && <img src={featureProject.thumb} alt={featureProject.title} />}
+                </div>
                 <div className="work-glow"></div>
                 <div className="play" aria-hidden="true"></div>
                 <div className="work-meta">
@@ -459,7 +468,9 @@ export default function Home() {
                 data-tc={p.timecode}
                 onClick={() => window.open(p.videoUrl, '_blank')}
               >
-                <div className="work-thumb"></div>
+                <div className="work-thumb">
+                  {p.thumb && <img src={p.thumb} alt={p.title} />}
+                </div>
                 <div className="work-glow"></div>
                 <div className="play" aria-hidden="true"></div>
                 <div className="work-meta">
@@ -481,7 +492,9 @@ export default function Home() {
                   data-tc={p.timecode}
                   onClick={() => window.open(p.videoUrl, '_blank')}
                 >
-                  <div className="work-thumb"></div>
+                  <div className="work-thumb">
+                    {p.thumb && <img src={p.thumb} alt={p.title} />}
+                  </div>
                   <div className="work-glow"></div>
                   <div className="play" aria-hidden="true"></div>
                   <div className="work-meta">
@@ -505,7 +518,7 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-head reveal">
             <span className="idx">03</span>
-            <h2>Services</h2>
+            <h2>Skills</h2>
           </div>
           <div className="svc-grid">
             {services.map((svc, i) => (
@@ -647,7 +660,7 @@ export default function Home() {
             <div className="foot-links">
               <a href="#top">Top</a>
               <a href="#work">Work</a>
-              <a href="#services">Services</a>
+              <a href="#services">Skills</a>
               <a href="#contact">Contact</a>
             </div>
           </div>

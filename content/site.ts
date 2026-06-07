@@ -2,7 +2,7 @@ export const site = {
   nameFirst: 'SYAM',
   nameLast: 'KUMAR',
   logoLabel: 'SYAM',
-  logoHandle: '/TALKS',
+  logoHandle: ' TALKS',
   profession: 'Video Editor & Content Creator',
   tagline: 'Video editor, content creator & graphic designer crafting',
   taglineBold: 'cinematic stories',
@@ -13,7 +13,7 @@ export const site = {
   location: 'Visakhapatnam, India',
   locationCode: 'IN',
   phone: '+91 98852 51008',
-  email: 'syamtalks@gmail.com',
+  email: 'sampatnala3@gmail.com',
   status: 'Available for projects',
   year: '2026',
   stats: [
